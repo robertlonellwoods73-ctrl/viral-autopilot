@@ -1,0 +1,26 @@
+```json
+{
+  "name": "viral-autopilot-backend",
+  "version": "1.0.0",
+  "description": "Viral Video Autopilot Engine",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "worker": "node src/workers/autopilotWorker.js",
+    "distribute": "node src/workers/distributionWorker.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.0.0",
+    "axios": "^1.6.0",
+    "bullmq": "^5.0.0",
+    "cloudinary": "^2.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.0",
+    "express": "^4.18.0",
+    "express-rate-limit": "^7.1.0",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.0",
+    "prisma": "^5.0.0"
+  }
+}
+```
