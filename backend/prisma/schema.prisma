@@ -1,0 +1,50 @@
+```prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Project {
+  id           String   @id @default(cuid())
+  userId       String
+  songUrl      String
+  songTitle    String
+  artist       String
+  status       String   @default("pending")
+  progress     Int      @default(0)
+  videoUrl     String?
+  youtubeUrl   String?
+  tiktokUrl    String?
+  instagramUrl String?
+  thumbnailUrl String?
+  views        Int      @default(0)
+  likes        Int      @default(0)
+  shares       Int      @default(0)
+  distribution Json?
+  retryCount   Int      @default(0)
+  error        String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  
+  socialPosts SocialPost[]
+}
+
+model SocialPost {
+  id        String   @id @default(cuid())
+  projectId String
+  platform  String
+  postType  String
+  postUrl   String?
+  postId    String?
+  status    String   @default("pending")
+  views     Int      @default(0)
+  likes     Int      @default(0)
+  shares    Int      @default(0)
+  postedAt  DateTime?
+  createdAt DateTime @default(now())
+}
+```
